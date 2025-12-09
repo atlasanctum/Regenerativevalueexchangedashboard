@@ -6,10 +6,14 @@ import { Governance } from './components/Governance';
 import { TradingInterface } from './components/TradingInterface';
 import { ImpactMetrics } from './components/ImpactMetrics';
 import { CustodianNetwork } from './components/CustodianNetwork';
-import { DeveloperDocs } from './components/DeveloperDocs';
-import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code } from 'lucide-react';
+import { APIExplorer } from './components/APIExplorer';
+import { OracleNetwork } from './components/OracleNetwork';
+import { TokenEconomics } from './components/TokenEconomics';
+import { ComplianceAudits } from './components/ComplianceAudits';
+import { AlertSystem } from './components/AlertSystem';
+import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell } from 'lucide-react';
 
-type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api';
+type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -23,6 +27,10 @@ export default function App() {
     { id: 'impact' as TabType, label: 'Impact', icon: Globe },
     { id: 'custodians' as TabType, label: 'Custodians', icon: BookOpen },
     { id: 'api' as TabType, label: 'API & Architecture', icon: Code },
+    { id: 'oracle' as TabType, label: 'Oracle Network', icon: Satellite },
+    { id: 'tokenomics' as TabType, label: 'Token Economics', icon: Coins },
+    { id: 'compliance' as TabType, label: 'Compliance Audits', icon: FileCheck },
+    { id: 'alerts' as TabType, label: 'Alert System', icon: Bell },
   ];
 
   return (
@@ -85,7 +93,11 @@ export default function App() {
         {activeTab === 'trading' && <TradingInterface />}
         {activeTab === 'impact' && <ImpactMetrics />}
         {activeTab === 'custodians' && <CustodianNetwork />}
-        {activeTab === 'api' && <DeveloperDocs />}
+        {activeTab === 'api' && <APIExplorer />}
+        {activeTab === 'oracle' && <OracleNetwork />}
+        {activeTab === 'tokenomics' && <TokenEconomics />}
+        {activeTab === 'compliance' && <ComplianceAudits />}
+        {activeTab === 'alerts' && <AlertSystem />}
       </main>
 
       {/* Footer */}
