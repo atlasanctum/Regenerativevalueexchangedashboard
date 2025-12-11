@@ -11,9 +11,10 @@ import { OracleNetwork } from './components/OracleNetwork';
 import { TokenEconomics } from './components/TokenEconomics';
 import { ComplianceAudits } from './components/ComplianceAudits';
 import { AlertSystem } from './components/AlertSystem';
-import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell } from 'lucide-react';
+import { AdvancedVisualizations } from './components/AdvancedVisualizations';
+import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3 } from 'lucide-react';
 
-type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts';
+type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -26,6 +27,7 @@ export default function App() {
     { id: 'trading' as TabType, label: 'Trading', icon: TrendingUp },
     { id: 'impact' as TabType, label: 'Impact', icon: Globe },
     { id: 'custodians' as TabType, label: 'Custodians', icon: BookOpen },
+    { id: 'visualizations' as TabType, label: 'Visualizations', icon: BarChart3 },
     { id: 'api' as TabType, label: 'API & Architecture', icon: Code },
     { id: 'oracle' as TabType, label: 'Oracle Network', icon: Satellite },
     { id: 'tokenomics' as TabType, label: 'Token Economics', icon: Coins },
@@ -93,6 +95,7 @@ export default function App() {
         {activeTab === 'trading' && <TradingInterface />}
         {activeTab === 'impact' && <ImpactMetrics />}
         {activeTab === 'custodians' && <CustodianNetwork />}
+        {activeTab === 'visualizations' && <AdvancedVisualizations />}
         {activeTab === 'api' && <APIExplorer />}
         {activeTab === 'oracle' && <OracleNetwork />}
         {activeTab === 'tokenomics' && <TokenEconomics />}

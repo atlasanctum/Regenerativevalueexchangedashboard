@@ -1,14 +1,39 @@
-import { TrendingUp, TrendingDown, Leaf, Heart, Palette, Droplet } from 'lucide-react';
+import { TrendingUp, TrendingDown, Leaf, Heart, Palette, Droplet, Calendar, RefreshCw, Download, Filter } from 'lucide-react';
 import { LineChart, Line, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { useState } from 'react';
 
-const marketData = [
-  { month: 'Jan', value: 542 },
-  { month: 'Feb', value: 589 },
-  { month: 'Mar', value: 634 },
-  { month: 'Apr', value: 698 },
-  { month: 'May', value: 756 },
-  { month: 'Jun', value: 847 },
-];
+const marketData = {
+  '7d': [
+    { month: 'Day 1', value: 820 },
+    { month: 'Day 2', value: 827 },
+    { month: 'Day 3', value: 833 },
+    { month: 'Day 4', value: 838 },
+    { month: 'Day 5', value: 841 },
+    { month: 'Day 6', value: 844 },
+    { month: 'Day 7', value: 847 },
+  ],
+  '1m': [
+    { month: 'Week 1', value: 812 },
+    { month: 'Week 2', value: 824 },
+    { month: 'Week 3', value: 835 },
+    { month: 'Week 4', value: 847 },
+  ],
+  '6m': [
+    { month: 'Jan', value: 542 },
+    { month: 'Feb', value: 589 },
+    { month: 'Mar', value: 634 },
+    { month: 'Apr', value: 698 },
+    { month: 'May', value: 756 },
+    { month: 'Jun', value: 847 },
+  ],
+  '1y': [
+    { month: 'Q1 2024', value: 412 },
+    { month: 'Q2 2024', value: 487 },
+    { month: 'Q3 2024', value: 634 },
+    { month: 'Q4 2024', value: 756 },
+    { month: 'Q1 2025', value: 847 },
+  ],
+};
 
 const assetDistribution = [
   { name: 'Environmental', value: 384, color: '#10b981' },
@@ -18,51 +43,165 @@ const assetDistribution = [
 ];
 
 export function Overview() {
+  const [timeRange, setTimeRange] = useState<'7d' | '1m' | '6m' | '1y'>('6m');
+  const [isLiveData, setIsLiveData] = useState(true);
+  const [selectedMetric, setSelectedMetric] = useState<'all' | 'environmental' | 'health' | 'cultural' | 'ecosystem'>('all');
+
+  const timeRanges = [
+    { id: '7d', label: '7 Days' },
+    { id: '1m', label: '1 Month' },
+    { id: '6m', label: '6 Months' },
+    { id: '1y', label: '1 Year' },
+  ];
+
+  const currentData = marketData[timeRange];
+
+  // Calculate year-over-year comparison
+  const currentValue = 847.3;
+  const previousYearValue = 621.4;
+  const yoyChange = ((currentValue - previousYearValue) / previousYearValue * 100).toFixed(1);
+
   return (
     <div className="space-y-6">
-      {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <MetricCard
-          title="Environmental Assets"
-          value="$384.2B"
-          change="+12.3%"
-          trend="up"
-          icon={Leaf}
-          color="emerald"
-        />
-        <MetricCard
-          title="Health & Social Assets"
-          value="$212.8B"
-          change="+8.7%"
-          trend="up"
-          icon={Heart}
-          color="blue"
-        />
-        <MetricCard
-          title="Cultural Assets"
-          value="$156.1B"
-          change="+15.2%"
-          trend="up"
-          icon={Palette}
-          color="amber"
-        />
-        <MetricCard
-          title="Ecosystem Services"
-          value="$94.2B"
-          change="+9.4%"
-          trend="up"
-          icon={Droplet}
-          color="purple"
-        />
+      {/* Header with Controls */}
+      <div className="bg-gradient-to-r from-emerald-900/40 to-teal-900/40 backdrop-blur-sm border border-emerald-500/30 rounded-xl p-6">
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div>
+            <h2 className="text-white mb-2">Market Overview</h2>
+            <p className="text-emerald-300/80">Real-time regenerative value metrics and trends</p>
+          </div>
+          <div className="flex items-center gap-3">
+            <button className="flex items-center gap-2 px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 rounded-lg transition-all border border-emerald-500/30">
+              <Download className="w-4 h-4" />
+              <span className="text-sm">Export Data</span>
+            </button>
+            <button 
+              onClick={() => setIsLiveData(!isLiveData)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all border ${
+                isLiveData 
+                  ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30' 
+                  : 'bg-emerald-500/10 text-emerald-400/60 border-emerald-500/20'
+              }`}
+            >
+              <RefreshCw className={`w-4 h-4 ${isLiveData ? 'animate-spin' : ''}`} />
+              <span className="text-sm">Live Data</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Year-over-Year Comparison */}
+      <div className="bg-black/30 backdrop-blur-sm border border-emerald-500/20 rounded-xl p-6">
+        <h3 className="text-white mb-4">Year-over-Year Growth</h3>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-emerald-900/20 rounded-lg p-4">
+            <div className="text-emerald-300/70 text-sm mb-2">Current Year (2025)</div>
+            <div className="text-white mb-2">${currentValue}B</div>
+            <div className="flex items-center gap-1 text-emerald-400 text-sm">
+              <TrendingUp className="w-4 h-4" />
+              <span>+{yoyChange}% vs 2024</span>
+            </div>
+          </div>
+          <div className="bg-emerald-900/20 rounded-lg p-4">
+            <div className="text-emerald-300/70 text-sm mb-2">Previous Year (2024)</div>
+            <div className="text-white mb-2">${previousYearValue}B</div>
+            <div className="text-emerald-300/60 text-sm">Full year value</div>
+          </div>
+          <div className="bg-emerald-900/20 rounded-lg p-4">
+            <div className="text-emerald-300/70 text-sm mb-2">Absolute Growth</div>
+            <div className="text-white mb-2">+${(currentValue - previousYearValue).toFixed(1)}B</div>
+            <div className="text-emerald-300/60 text-sm">Added this year</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Key Metrics with Filter */}
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-white">Asset Performance</h3>
+          <div className="flex items-center gap-2">
+            <Filter className="w-4 h-4 text-emerald-400" />
+            <select 
+              value={selectedMetric}
+              onChange={(e) => setSelectedMetric(e.target.value as any)}
+              className="bg-emerald-900/20 border border-emerald-500/20 rounded-lg px-3 py-2 text-emerald-300 text-sm focus:outline-none focus:border-emerald-500/40"
+            >
+              <option value="all">All Assets</option>
+              <option value="environmental">Environmental</option>
+              <option value="health">Health & Social</option>
+              <option value="cultural">Cultural</option>
+              <option value="ecosystem">Ecosystem Services</option>
+            </select>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {(selectedMetric === 'all' || selectedMetric === 'environmental') && (
+            <MetricCard
+              title="Environmental Assets"
+              value="$384.2B"
+              change="+12.3%"
+              trend="up"
+              icon={Leaf}
+              color="emerald"
+            />
+          )}
+          {(selectedMetric === 'all' || selectedMetric === 'health') && (
+            <MetricCard
+              title="Health & Social Assets"
+              value="$212.8B"
+              change="+8.7%"
+              trend="up"
+              icon={Heart}
+              color="blue"
+            />
+          )}
+          {(selectedMetric === 'all' || selectedMetric === 'cultural') && (
+            <MetricCard
+              title="Cultural Assets"
+              value="$156.1B"
+              change="+15.2%"
+              trend="up"
+              icon={Palette}
+              color="amber"
+            />
+          )}
+          {(selectedMetric === 'all' || selectedMetric === 'ecosystem') && (
+            <MetricCard
+              title="Ecosystem Services"
+              value="$94.2B"
+              change="+9.4%"
+              trend="up"
+              icon={Droplet}
+              color="purple"
+            />
+          )}
+        </div>
       </div>
 
       {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Market Growth Chart */}
+        {/* Market Growth Chart with Time Range Selector */}
         <div className="lg:col-span-2 bg-black/30 backdrop-blur-sm border border-emerald-500/20 rounded-xl p-6">
-          <h3 className="text-white mb-6">Total Market Value Growth (Billions USD)</h3>
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="text-white">Total Market Value Growth (Billions USD)</h3>
+            <div className="flex gap-1 bg-emerald-900/20 rounded-lg p-1">
+              {timeRanges.map((range) => (
+                <button
+                  key={range.id}
+                  onClick={() => setTimeRange(range.id as any)}
+                  className={`px-3 py-1 rounded-md text-sm transition-all ${
+                    timeRange === range.id
+                      ? 'bg-emerald-500 text-white'
+                      : 'text-emerald-400/60 hover:text-emerald-400'
+                  }`}
+                >
+                  {range.label}
+                </button>
+              ))}
+            </div>
+          </div>
           <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={marketData}>
+            <AreaChart data={currentData}>
               <defs>
                 <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
