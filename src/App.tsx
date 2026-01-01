@@ -12,15 +12,17 @@ import { TokenEconomics } from './components/TokenEconomics';
 import { ComplianceAudits } from './components/ComplianceAudits';
 import { AlertSystem } from './components/AlertSystem';
 import { AdvancedVisualizations } from './components/AdvancedVisualizations';
-import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3 } from 'lucide-react';
+import { CriticalOperations } from './components/CriticalOperations';
+import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap } from 'lucide-react';
 
-type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations';
+type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
 
   const tabs = [
     { id: 'overview' as TabType, label: 'Overview', icon: Activity },
+    { id: 'operations' as TabType, label: 'Operations', icon: Zap },
     { id: 'assets' as TabType, label: 'Asset Classes', icon: Leaf },
     { id: 'verification' as TabType, label: 'Verification', icon: Shield },
     { id: 'governance' as TabType, label: 'Governance', icon: Users },
@@ -89,6 +91,7 @@ export default function App() {
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'overview' && <Overview />}
+        {activeTab === 'operations' && <CriticalOperations />}
         {activeTab === 'assets' && <AssetClasses />}
         {activeTab === 'verification' && <VerificationLayer />}
         {activeTab === 'governance' && <Governance />}
