@@ -231,12 +231,12 @@ export function TradingInterface() {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <button
+                      <div
                         onClick={(e) => {
                           e.stopPropagation();
                           toggleWatchlist(asset.symbol);
                         }}
-                        className="hover:scale-110 transition-transform"
+                        className="hover:scale-110 transition-transform cursor-pointer"
                       >
                         <Star 
                           className={`w-5 h-5 ${
@@ -245,7 +245,7 @@ export function TradingInterface() {
                               : 'text-emerald-400/30'
                           }`}
                         />
-                      </button>
+                      </div>
                       <div className={`w-10 h-10 bg-gradient-to-br from-${asset.color}-500 to-${asset.color}-600 rounded-lg flex items-center justify-center text-white`}>
                         {asset.symbol.substring(0, 2)}
                       </div>

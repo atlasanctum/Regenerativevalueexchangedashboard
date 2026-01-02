@@ -13,9 +13,10 @@ import { ComplianceAudits } from './components/ComplianceAudits';
 import { AlertSystem } from './components/AlertSystem';
 import { AdvancedVisualizations } from './components/AdvancedVisualizations';
 import { CriticalOperations } from './components/CriticalOperations';
-import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap } from 'lucide-react';
+import { CriticalInnovations } from './components/CriticalInnovations';
+import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap, Sparkles } from 'lucide-react';
 
-type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations';
+type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -23,6 +24,7 @@ export default function App() {
   const tabs = [
     { id: 'overview' as TabType, label: 'Overview', icon: Activity },
     { id: 'operations' as TabType, label: 'Operations', icon: Zap },
+    { id: 'innovations' as TabType, label: 'Innovations', icon: Sparkles },
     { id: 'assets' as TabType, label: 'Asset Classes', icon: Leaf },
     { id: 'verification' as TabType, label: 'Verification', icon: Shield },
     { id: 'governance' as TabType, label: 'Governance', icon: Users },
@@ -92,6 +94,7 @@ export default function App() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'overview' && <Overview />}
         {activeTab === 'operations' && <CriticalOperations />}
+        {activeTab === 'innovations' && <CriticalInnovations />}
         {activeTab === 'assets' && <AssetClasses />}
         {activeTab === 'verification' && <VerificationLayer />}
         {activeTab === 'governance' && <Governance />}
