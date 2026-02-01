@@ -14,9 +14,17 @@ import { AlertSystem } from './components/AlertSystem';
 import { AdvancedVisualizations } from './components/AdvancedVisualizations';
 import { CriticalOperations } from './components/CriticalOperations';
 import { CriticalInnovations } from './components/CriticalInnovations';
-import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap, Sparkles } from 'lucide-react';
+import { CrossChainSwaps } from './components/CrossChainSwaps';
+import { ZKRollupIntegration } from './components/ZKRollupIntegration';
+import { DecentralizedIdentity } from './components/DecentralizedIdentity';
+import { AlgorithmicStablecoins } from './components/AlgorithmicStablecoins';
+import { GlobalExpansion } from './components/GlobalExpansion';
+import { InstitutionalPartnerships } from './components/InstitutionalPartnerships';
+import { ImpactDerivatives } from './components/ImpactDerivatives';
+import { CarbonCreditRegistry } from './components/CarbonCreditRegistry';
+import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap, Sparkles, ArrowRightLeft, Lock, User, DollarSign, Globe2, Building2, LineChart, Cloud } from 'lucide-react';
 
-type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations';
+type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations' | 'cross-chain' | 'zk-rollup' | 'did' | 'stablecoins' | 'global' | 'institutional' | 'derivatives' | 'carbon-registry';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -37,6 +45,16 @@ export default function App() {
     { id: 'tokenomics' as TabType, label: 'Token Economics', icon: Coins },
     { id: 'compliance' as TabType, label: 'Compliance Audits', icon: FileCheck },
     { id: 'alerts' as TabType, label: 'Alert System', icon: Bell },
+    // Q3 2025 Features
+    { id: 'cross-chain' as TabType, label: 'Cross-Chain Swaps', icon: ArrowRightLeft },
+    { id: 'zk-rollup' as TabType, label: 'ZK-Rollups', icon: Lock },
+    { id: 'did' as TabType, label: 'Decentralized ID', icon: User },
+    { id: 'stablecoins' as TabType, label: 'Stablecoins', icon: DollarSign },
+    // Q4 2025 Features
+    { id: 'global' as TabType, label: 'Global Expansion', icon: Globe2 },
+    { id: 'institutional' as TabType, label: 'Institutional', icon: Building2 },
+    { id: 'derivatives' as TabType, label: 'Derivatives', icon: LineChart },
+    { id: 'carbon-registry' as TabType, label: 'Carbon Registry', icon: Cloud },
   ];
 
   return (
@@ -107,6 +125,16 @@ export default function App() {
         {activeTab === 'tokenomics' && <TokenEconomics />}
         {activeTab === 'compliance' && <ComplianceAudits />}
         {activeTab === 'alerts' && <AlertSystem />}
+        {/* Q3 2025 Features */}
+        {activeTab === 'cross-chain' && <CrossChainSwaps />}
+        {activeTab === 'zk-rollup' && <ZKRollupIntegration />}
+        {activeTab === 'did' && <DecentralizedIdentity />}
+        {activeTab === 'stablecoins' && <AlgorithmicStablecoins />}
+        {/* Q4 2025 Features */}
+        {activeTab === 'global' && <GlobalExpansion />}
+        {activeTab === 'institutional' && <InstitutionalPartnerships />}
+        {activeTab === 'derivatives' && <ImpactDerivatives />}
+        {activeTab === 'carbon-registry' && <CarbonCreditRegistry />}
       </main>
 
       {/* Footer */}
