@@ -22,9 +22,19 @@ import { GlobalExpansion } from './components/GlobalExpansion';
 import { InstitutionalPartnerships } from './components/InstitutionalPartnerships';
 import { ImpactDerivatives } from './components/ImpactDerivatives';
 import { CarbonCreditRegistry } from './components/CarbonCreditRegistry';
-import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap, Sparkles, ArrowRightLeft, Lock, User, DollarSign, Globe2, Building2, LineChart, Cloud } from 'lucide-react';
+import { AIImpactModeling } from './components/innovations/AIImpactModeling';
+import { SatelliteDataIntegration } from './components/innovations/SatelliteDataIntegration';
+import { IoTSensorNetworks } from './components/innovations/IoTSensorNetworks';
+import { NFTImpactCertificates } from './components/innovations/NFTImpactCertificates';
+import { LiquidStakingYield } from './components/innovations/LiquidStakingYield';
+import { PublicDashboard } from './components/truth-coordination/PublicDashboard';
+import { NodeOperatorConsole } from './components/truth-coordination/NodeOperatorConsole';
+import { OracleAuditorConsole } from './components/truth-coordination/OracleAuditorConsole';
+import { BuyersPortal } from './components/truth-coordination/BuyersPortal';
+import { GovernancePortal } from './components/truth-coordination/GovernancePortal';
+import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap, Sparkles, ArrowRightLeft, Lock, User, DollarSign, Globe2, Building2, LineChart, Cloud, Brain, Radio, Cpu, Award, Droplets, Eye, Briefcase, UserCheck, ShoppingBag, Vote } from 'lucide-react';
 
-type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations' | 'cross-chain' | 'zk-rollup' | 'did' | 'stablecoins' | 'global' | 'institutional' | 'derivatives' | 'carbon-registry';
+type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations' | 'cross-chain' | 'zk-rollup' | 'did' | 'stablecoins' | 'global' | 'institutional' | 'derivatives' | 'carbon-registry' | 'ai-modeling' | 'satellite-data' | 'iot-sensors' | 'nft-certificates' | 'liquid-staking' | 'public-dashboard' | 'node-operator' | 'oracle-auditor' | 'buyers-portal' | 'governance-portal';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -33,6 +43,12 @@ export default function App() {
     { id: 'overview' as TabType, label: 'Overview', icon: Activity },
     { id: 'operations' as TabType, label: 'Operations', icon: Zap },
     { id: 'innovations' as TabType, label: 'Innovations', icon: Sparkles },
+    // Truth Coordination Layers
+    { id: 'public-dashboard' as TabType, label: 'Public Dashboard', icon: Eye },
+    { id: 'node-operator' as TabType, label: 'Node Operator', icon: Briefcase },
+    { id: 'oracle-auditor' as TabType, label: 'Oracle Auditor', icon: UserCheck },
+    { id: 'buyers-portal' as TabType, label: 'Buyers Portal', icon: ShoppingBag },
+    { id: 'governance-portal' as TabType, label: 'Governance (SAN)', icon: Vote },
     { id: 'assets' as TabType, label: 'Asset Classes', icon: Leaf },
     { id: 'verification' as TabType, label: 'Verification', icon: Shield },
     { id: 'governance' as TabType, label: 'Governance', icon: Users },
@@ -55,6 +71,12 @@ export default function App() {
     { id: 'institutional' as TabType, label: 'Institutional', icon: Building2 },
     { id: 'derivatives' as TabType, label: 'Derivatives', icon: LineChart },
     { id: 'carbon-registry' as TabType, label: 'Carbon Registry', icon: Cloud },
+    // Innovations
+    { id: 'ai-modeling' as TabType, label: 'AI Impact Modeling', icon: Brain },
+    { id: 'satellite-data' as TabType, label: 'Satellite Data Integration', icon: Radio },
+    { id: 'iot-sensors' as TabType, label: 'IoT Sensor Networks', icon: Cpu },
+    { id: 'nft-certificates' as TabType, label: 'NFT Impact Certificates', icon: Award },
+    { id: 'liquid-staking' as TabType, label: 'Liquid Staking Yield', icon: Droplets },
   ];
 
   return (
@@ -113,6 +135,12 @@ export default function App() {
         {activeTab === 'overview' && <Overview />}
         {activeTab === 'operations' && <CriticalOperations />}
         {activeTab === 'innovations' && <CriticalInnovations />}
+        {/* Truth Coordination Layers */}
+        {activeTab === 'public-dashboard' && <PublicDashboard />}
+        {activeTab === 'node-operator' && <NodeOperatorConsole />}
+        {activeTab === 'oracle-auditor' && <OracleAuditorConsole />}
+        {activeTab === 'buyers-portal' && <BuyersPortal />}
+        {activeTab === 'governance-portal' && <GovernancePortal />}
         {activeTab === 'assets' && <AssetClasses />}
         {activeTab === 'verification' && <VerificationLayer />}
         {activeTab === 'governance' && <Governance />}
@@ -135,6 +163,12 @@ export default function App() {
         {activeTab === 'institutional' && <InstitutionalPartnerships />}
         {activeTab === 'derivatives' && <ImpactDerivatives />}
         {activeTab === 'carbon-registry' && <CarbonCreditRegistry />}
+        {/* Innovations */}
+        {activeTab === 'ai-modeling' && <AIImpactModeling />}
+        {activeTab === 'satellite-data' && <SatelliteDataIntegration />}
+        {activeTab === 'iot-sensors' && <IoTSensorNetworks />}
+        {activeTab === 'nft-certificates' && <NFTImpactCertificates />}
+        {activeTab === 'liquid-staking' && <LiquidStakingYield />}
       </main>
 
       {/* Footer */}
