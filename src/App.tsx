@@ -1,40 +1,8 @@
-import { useState } from 'react';
-import { Overview } from './components/Overview';
-import { AssetClasses } from './components/AssetClasses';
-import { VerificationLayer } from './components/VerificationLayer';
-import { Governance } from './components/Governance';
-import { TradingInterface } from './components/TradingInterface';
-import { ImpactMetrics } from './components/ImpactMetrics';
-import { CustodianNetwork } from './components/CustodianNetwork';
-import { APIExplorer } from './components/APIExplorer';
-import { OracleNetwork } from './components/OracleNetwork';
-import { TokenEconomics } from './components/TokenEconomics';
-import { ComplianceAudits } from './components/ComplianceAudits';
-import { AlertSystem } from './components/AlertSystem';
-import { AdvancedVisualizations } from './components/AdvancedVisualizations';
-import { CriticalOperations } from './components/CriticalOperations';
-import { CriticalInnovations } from './components/CriticalInnovations';
-import { CrossChainSwaps } from './components/CrossChainSwaps';
-import { ZKRollupIntegration } from './components/ZKRollupIntegration';
-import { DecentralizedIdentity } from './components/DecentralizedIdentity';
-import { AlgorithmicStablecoins } from './components/AlgorithmicStablecoins';
-import { GlobalExpansion } from './components/GlobalExpansion';
-import { InstitutionalPartnerships } from './components/InstitutionalPartnerships';
-import { ImpactDerivatives } from './components/ImpactDerivatives';
-import { CarbonCreditRegistry } from './components/CarbonCreditRegistry';
-import { AIImpactModeling } from './components/innovations/AIImpactModeling';
-import { SatelliteDataIntegration } from './components/innovations/SatelliteDataIntegration';
-import { IoTSensorNetworks } from './components/innovations/IoTSensorNetworks';
-import { NFTImpactCertificates } from './components/innovations/NFTImpactCertificates';
-import { LiquidStakingYield } from './components/innovations/LiquidStakingYield';
-import { PublicDashboard } from './components/truth-coordination/PublicDashboard';
-import { NodeOperatorConsole } from './components/truth-coordination/NodeOperatorConsole';
-import { OracleAuditorConsole } from './components/truth-coordination/OracleAuditorConsole';
-import { BuyersPortal } from './components/truth-coordination/BuyersPortal';
-import { GovernancePortal } from './components/truth-coordination/GovernancePortal';
+import { ArchitectureMonitor } from './components/system-health/ArchitectureMonitor';
+import { DataQualityDashboard } from './components/data-quality/DataQualityDashboard';
 import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap, Sparkles, ArrowRightLeft, Lock, User, DollarSign, Globe2, Building2, LineChart, Cloud, Brain, Radio, Cpu, Award, Droplets, Eye, Briefcase, UserCheck, ShoppingBag, Vote } from 'lucide-react';
 
-type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations' | 'cross-chain' | 'zk-rollup' | 'did' | 'stablecoins' | 'global' | 'institutional' | 'derivatives' | 'carbon-registry' | 'ai-modeling' | 'satellite-data' | 'iot-sensors' | 'nft-certificates' | 'liquid-staking' | 'public-dashboard' | 'node-operator' | 'oracle-auditor' | 'buyers-portal' | 'governance-portal';
+type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations' | 'cross-chain' | 'zk-rollup' | 'did' | 'stablecoins' | 'global' | 'institutional' | 'derivatives' | 'carbon-registry' | 'ai-modeling' | 'satellite-data' | 'iot-sensors' | 'nft-certificates' | 'liquid-staking' | 'public-dashboard' | 'node-operator' | 'oracle-auditor' | 'buyers-portal' | 'governance-portal' | 'architecture-monitor' | 'data-quality';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -43,6 +11,9 @@ export default function App() {
     { id: 'overview' as TabType, label: 'Overview', icon: Activity },
     { id: 'operations' as TabType, label: 'Operations', icon: Zap },
     { id: 'innovations' as TabType, label: 'Innovations', icon: Sparkles },
+    // System Architecture & Data Quality
+    { id: 'architecture-monitor' as TabType, label: 'Architecture Monitor', icon: Activity },
+    { id: 'data-quality' as TabType, label: 'Data Quality', icon: Shield },
     // Truth Coordination Layers
     { id: 'public-dashboard' as TabType, label: 'Public Dashboard', icon: Eye },
     { id: 'node-operator' as TabType, label: 'Node Operator', icon: Briefcase },
@@ -135,6 +106,9 @@ export default function App() {
         {activeTab === 'overview' && <Overview />}
         {activeTab === 'operations' && <CriticalOperations />}
         {activeTab === 'innovations' && <CriticalInnovations />}
+        {/* System Architecture & Data Quality */}
+        {activeTab === 'architecture-monitor' && <ArchitectureMonitor />}
+        {activeTab === 'data-quality' && <DataQualityDashboard />}
         {/* Truth Coordination Layers */}
         {activeTab === 'public-dashboard' && <PublicDashboard />}
         {activeTab === 'node-operator' && <NodeOperatorConsole />}
