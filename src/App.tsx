@@ -1,19 +1,62 @@
+import { useState } from 'react';
 import { ArchitectureMonitor } from './components/system-health/ArchitectureMonitor';
 import { DataQualityDashboard } from './components/data-quality/DataQualityDashboard';
-import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap, Sparkles, ArrowRightLeft, Lock, User, DollarSign, Globe2, Building2, LineChart, Cloud, Brain, Radio, Cpu, Award, Droplets, Eye, Briefcase, UserCheck, ShoppingBag, Vote } from 'lucide-react';
+import { Overview } from './components/Overview';
+import { CriticalOperations } from './components/CriticalOperations';
+import { CriticalInnovations } from './components/CriticalInnovations';
+import { PublicDashboard } from './components/truth-coordination/PublicDashboard';
+import { NodeOperatorConsole } from './components/truth-coordination/NodeOperatorConsole';
+import { OracleAuditorConsole } from './components/truth-coordination/OracleAuditorConsole';
+import { BuyersPortal } from './components/truth-coordination/BuyersPortal';
+import { GovernancePortal } from './components/truth-coordination/GovernancePortal';
+import { AssetClasses } from './components/AssetClasses';
+import { VerificationLayer } from './components/VerificationLayer';
+import { Governance } from './components/Governance';
+import { TradingInterface } from './components/TradingInterface';
+import { ImpactMetrics } from './components/ImpactMetrics';
+import { CustodianNetwork } from './components/CustodianNetwork';
+import { AdvancedVisualizations } from './components/AdvancedVisualizations';
+import { APIExplorer } from './components/APIExplorer';
+import { OracleNetwork } from './components/OracleNetwork';
+import { TokenEconomics } from './components/TokenEconomics';
+import { ComplianceAudits } from './components/ComplianceAudits';
+import { AlertSystem } from './components/AlertSystem';
+import { CrossChainSwaps } from './components/CrossChainSwaps';
+import { ZKRollupIntegration } from './components/ZKRollupIntegration';
+import { DecentralizedIdentity } from './components/DecentralizedIdentity';
+import { AlgorithmicStablecoins } from './components/AlgorithmicStablecoins';
+import { GlobalExpansion } from './components/GlobalExpansion';
+import { InstitutionalPartnerships } from './components/InstitutionalPartnerships';
+import { ImpactDerivatives } from './components/ImpactDerivatives';
+import { CarbonCreditRegistry } from './components/CarbonCreditRegistry';
+import { AIImpactModeling } from './components/innovations/AIImpactModeling';
+import { SatelliteDataIntegration } from './components/innovations/SatelliteDataIntegration';
+import { IoTSensorNetworks } from './components/innovations/IoTSensorNetworks';
+import { NFTImpactCertificates } from './components/innovations/NFTImpactCertificates';
+import { LiquidStakingYield } from './components/innovations/LiquidStakingYield';
+import { AIModelingDashboard } from './components/engineering-guilds/AIModelingDashboard';
+import { InfrastructureDevOpsDashboard } from './components/engineering-guilds/InfrastructureDevOpsDashboard';
+import { ProductInterfaceDashboard } from './components/engineering-guilds/ProductInterfaceDashboard';
+import { EthicalSystemsDashboard } from './components/engineering-guilds/EthicalSystemsDashboard';
+import { Leaf, TrendingUp, Shield, Users, Globe, Activity, BookOpen, Code, Satellite, Coins, FileCheck, Bell, BarChart3, Zap, Sparkles, ArrowRightLeft, Lock, User, DollarSign, Globe2, Building2, LineChart, Cloud, Brain, Radio, Cpu, Award, Droplets, Eye, Briefcase, UserCheck, ShoppingBag, Vote, Server, Palette, Scale, Database } from 'lucide-react';
 
-type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations' | 'cross-chain' | 'zk-rollup' | 'did' | 'stablecoins' | 'global' | 'institutional' | 'derivatives' | 'carbon-registry' | 'ai-modeling' | 'satellite-data' | 'iot-sensors' | 'nft-certificates' | 'liquid-staking' | 'public-dashboard' | 'node-operator' | 'oracle-auditor' | 'buyers-portal' | 'governance-portal' | 'architecture-monitor' | 'data-quality';
+type TabType = 'overview' | 'assets' | 'verification' | 'governance' | 'trading' | 'impact' | 'custodians' | 'api' | 'oracle' | 'tokenomics' | 'compliance' | 'alerts' | 'visualizations' | 'operations' | 'innovations' | 'cross-chain' | 'zk-rollup' | 'did' | 'stablecoins' | 'global' | 'institutional' | 'derivatives' | 'carbon-registry' | 'ai-modeling' | 'satellite-data' | 'iot-sensors' | 'nft-certificates' | 'liquid-staking' | 'public-dashboard' | 'node-operator' | 'oracle-auditor' | 'buyers-portal' | 'governance-portal' | 'architecture-monitor' | 'data-quality' | 'guild-ai-modeling' | 'guild-infrastructure' | 'guild-product' | 'guild-ethics';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<TabType>('overview');
+  const [activeTab, setActiveTab] = useState<TabType>('guild-ai-modeling');
 
   const tabs = [
     { id: 'overview' as TabType, label: 'Overview', icon: Activity },
     { id: 'operations' as TabType, label: 'Operations', icon: Zap },
     { id: 'innovations' as TabType, label: 'Innovations', icon: Sparkles },
+    // Engineering Guilds
+    { id: 'data-quality' as TabType, label: 'Guild: Data & Measurement', icon: Database },
+    { id: 'guild-ai-modeling' as TabType, label: 'Guild: AI & Modeling', icon: Brain },
+    { id: 'guild-infrastructure' as TabType, label: 'Guild: Infrastructure & DevOps', icon: Server },
+    { id: 'guild-product' as TabType, label: 'Guild: Product & Interface', icon: Palette },
+    { id: 'guild-ethics' as TabType, label: 'Guild: Ethical Systems', icon: Scale },
     // System Architecture & Data Quality
     { id: 'architecture-monitor' as TabType, label: 'Architecture Monitor', icon: Activity },
-    { id: 'data-quality' as TabType, label: 'Data Quality', icon: Shield },
     // Truth Coordination Layers
     { id: 'public-dashboard' as TabType, label: 'Public Dashboard', icon: Eye },
     { id: 'node-operator' as TabType, label: 'Node Operator', icon: Briefcase },
@@ -106,9 +149,14 @@ export default function App() {
         {activeTab === 'overview' && <Overview />}
         {activeTab === 'operations' && <CriticalOperations />}
         {activeTab === 'innovations' && <CriticalInnovations />}
+        {/* Engineering Guilds */}
+        {activeTab === 'data-quality' && <DataQualityDashboard />}
+        {activeTab === 'guild-ai-modeling' && <AIModelingDashboard />}
+        {activeTab === 'guild-infrastructure' && <InfrastructureDevOpsDashboard />}
+        {activeTab === 'guild-product' && <ProductInterfaceDashboard />}
+        {activeTab === 'guild-ethics' && <EthicalSystemsDashboard />}
         {/* System Architecture & Data Quality */}
         {activeTab === 'architecture-monitor' && <ArchitectureMonitor />}
-        {activeTab === 'data-quality' && <DataQualityDashboard />}
         {/* Truth Coordination Layers */}
         {activeTab === 'public-dashboard' && <PublicDashboard />}
         {activeTab === 'node-operator' && <NodeOperatorConsole />}
