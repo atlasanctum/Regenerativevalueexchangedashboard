@@ -405,7 +405,7 @@ export function NFTImpactCertificates() {
                 dataKey="value"
               >
                 {impactDistribution.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
+                  <Cell key={`cell-nft-${entry.type}-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip 

@@ -180,7 +180,7 @@ export function OracleNetwork() {
                 dataKey="value"
               >
                 {verificationDistribution.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  <Cell key={`cell-oracle-${entry.name}-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
               <Tooltip 

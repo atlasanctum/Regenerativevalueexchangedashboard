@@ -239,7 +239,7 @@ export function Overview() {
                 dataKey="value"
               >
                 {assetDistribution.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
+                  <Cell key={`cell-overview-${entry.name}-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip 

@@ -193,7 +193,7 @@ export function TokenEconomics() {
                 dataKey="value"
               >
                 {tokenDistribution.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  <Cell key={`cell-token-${entry.name}-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
               <Tooltip 

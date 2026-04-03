@@ -299,7 +299,7 @@ export function BuyersPortal() {
                   >
                     {impactData.map((entry, index) => {
                       const colors = ['#3b82f6', '#10b981', '#f59e0b', '#eab308', '#8b5cf6'];
-                      return <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />;
+                      return <Cell key={`cell-buyer-${entry.category}-${index}`} fill={colors[index % colors.length]} />;
                     })}
                   </Pie>
                   <Tooltip

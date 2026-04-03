@@ -297,7 +297,7 @@ export function DecentralizedIdentity() {
                 dataKey="value"
               >
                 {credentialDistribution.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
+                  <Cell key={`cell-did-${entry.name}-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip 

@@ -390,7 +390,7 @@ export function InstitutionalPartnerships() {
                 dataKey="value"
               >
                 {partnerTypes.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
+                  <Cell key={`cell-partner-${entry.name}-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip 

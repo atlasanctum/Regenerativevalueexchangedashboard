@@ -325,7 +325,7 @@ export function CrossChainSwaps() {
                 dataKey="value"
               >
                 {chainDistribution.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
+                  <Cell key={`cell-chain-${entry.name}-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip 

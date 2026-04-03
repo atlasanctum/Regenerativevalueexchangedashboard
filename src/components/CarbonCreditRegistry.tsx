@@ -367,7 +367,7 @@ export function CarbonCreditRegistry() {
                 dataKey="credits"
               >
                 {geographicDistribution.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
+                  <Cell key={`cell-carbon-${entry.region}-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip 

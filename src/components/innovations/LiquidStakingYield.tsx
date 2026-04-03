@@ -109,10 +109,10 @@ export function LiquidStakingYield() {
 
   // Reward distribution
   const rewardDistribution = [
-    { week: 'Week 1', rewards: 8200, stakers: 4800 },
-    { week: 'Week 2', rewards: 9100, stakers: 5050 },
-    { week: 'Week 3', rewards: 9800, stakers: 5200 },
-    { week: 'Week 4', rewards: 10400, stakers: 5234 },
+    { week: 'Week 1', rewards: 8200, stakers: 4800, color: '#10b981' },
+    { week: 'Week 2', rewards: 9100, stakers: 5050, color: '#3b82f6' },
+    { week: 'Week 3', rewards: 9800, stakers: 5200, color: '#f59e0b' },
+    { week: 'Week 4', rewards: 10400, stakers: 5234, color: '#ec4899' },
   ];
 
   // Staking metrics
@@ -425,7 +425,11 @@ export function LiquidStakingYield() {
                 contentStyle={{ backgroundColor: '#1e293b', border: '1px solid #10b98150' }}
                 labelStyle={{ color: '#6ee7b7' }}
               />
-              <Bar dataKey="rewards" fill="#10b981" name="Rewards (RVE)" />
+              <Bar dataKey="rewards" fill="#10b981" name="Rewards (RVE)">
+                {rewardDistribution.map((entry, index) => (
+                  <Cell key={`cell-liquid-${entry.name}-${index}`} fill={entry.color} />
+                ))}
+              </Bar>
             </BarChart>
           </ResponsiveContainer>
         </Card>
