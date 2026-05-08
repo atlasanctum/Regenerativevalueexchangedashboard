@@ -72,6 +72,19 @@ import { RegulatoryExpansion } from "./components/roadmap-2026/RegulatoryExpansi
 import { EnterpriseSaaS } from "./components/roadmap-2026/EnterpriseSaaS";
 import { AdvancedDerivatives } from "./components/roadmap-2026/AdvancedDerivatives";
 import { AutonomousOperations } from "./components/roadmap-2026/AutonomousOperations";
+
+// Core Infrastructure Components
+import { BlockchainRecords } from "./components/BlockchainRecords";
+import { AIPoweredOracles } from "./components/AIPoweredOracles";
+import { LivingSmartContracts } from "./components/LivingSmartContracts";
+import { RIUTrading } from "./components/RIUTrading";
+import { ImpactVerification } from "./components/ImpactVerification";
+
+// Interactive Versions
+import { RIUTradingInteractive } from "./components/RIUTradingInteractive";
+import { AIOraclesInteractive } from "./components/AIOraclesInteractive";
+import { InteractiveDashboard } from "./components/InteractiveDashboard";
+
 import { NotFound } from "./components/NotFound";
 
 export const router = createBrowserRouter([
@@ -173,7 +186,15 @@ export const router = createBrowserRouter([
       { path: "roadmap/enterprise-saas", Component: EnterpriseSaaS },
       { path: "roadmap/advanced-derivatives", Component: AdvancedDerivatives },
       { path: "roadmap/autonomous-operations", Component: AutonomousOperations },
-      
+
+      // Core Infrastructure
+      { path: "infrastructure/blockchain-records", Component: BlockchainRecords },
+      { path: "infrastructure/ai-oracles", Component: AIOraclesInteractive },
+      { path: "infrastructure/smart-contracts", Component: LivingSmartContracts },
+      { path: "infrastructure/riu-trading", Component: RIUTradingInteractive },
+      { path: "infrastructure/impact-verification", Component: ImpactVerification },
+      { path: "infrastructure/analytics", Component: InteractiveDashboard },
+
       { path: "*", Component: NotFound },
     ],
   },

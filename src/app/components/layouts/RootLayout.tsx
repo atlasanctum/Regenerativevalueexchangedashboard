@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router';
-import { Leaf, Home, Layers, Building2, Activity, Zap, Sparkles, Database, Brain, Server, Palette, Scale, Eye, Briefcase, UserCheck, ShoppingBag, Vote, Users, MessageSquare, Trophy, HelpCircle, TrendingUp, LineChart, Wallet, ArrowLeftRight, Shield, Box, FileQuestion, AlertTriangle, DollarSign, PieChart, Gauge, Search, Globe, Code, Sparkle, Award, Microscope, Wrench, Rocket, CandlestickChart, Bell, Calculator, Package, Smartphone, Bot, Network, Lock } from 'lucide-react';
+import { Leaf, Home, Layers, Building2, Activity, Zap, Sparkles, Database, Brain, Server, Palette, Scale, Eye, Briefcase, UserCheck, ShoppingBag, Vote, Users, MessageSquare, Trophy, HelpCircle, TrendingUp, LineChart, Wallet, ArrowLeftRight, Shield, Box, FileQuestion, AlertTriangle, DollarSign, PieChart, Gauge, Search, Globe, Code, Sparkle, Award, Microscope, Wrench, Rocket, CandlestickChart, Bell, Calculator, Package, Smartphone, Bot, Network, Lock, Workflow } from 'lucide-react';
 
 export function RootLayout() {
   const location = useLocation();
@@ -8,7 +8,20 @@ export function RootLayout() {
     { label: 'Home', path: '/', icon: Home },
     { label: 'Projects', path: '/projects', icon: Layers },
     { label: 'Institutional', path: '/institutional', icon: Building2 },
-    
+
+    {
+      label: 'Core Infrastructure',
+      icon: Database,
+      children: [
+        { label: 'Interactive Analytics', path: '/infrastructure/analytics', icon: Activity },
+        { label: 'Blockchain Records', path: '/infrastructure/blockchain-records', icon: Database },
+        { label: 'AI-Powered Oracles', path: '/infrastructure/ai-oracles', icon: Brain },
+        { label: 'Living Smart Contracts', path: '/infrastructure/smart-contracts', icon: Workflow },
+        { label: 'RIU Trading', path: '/infrastructure/riu-trading', icon: TrendingUp },
+        { label: 'Impact Verification', path: '/infrastructure/impact-verification', icon: Shield },
+      ]
+    },
+
     {
       label: 'Social & Community',
       icon: Users,
