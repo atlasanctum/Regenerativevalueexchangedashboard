@@ -85,6 +85,14 @@ import { RIUTradingInteractive } from "./components/RIUTradingInteractive";
 import { AIOraclesInteractive } from "./components/AIOraclesInteractive";
 import { InteractiveDashboard } from "./components/InteractiveDashboard";
 
+// Diagrams & Visualizations
+import { SystemArchitecture } from "./components/diagrams/SystemArchitecture";
+import { DataFlowPipeline } from "./components/diagrams/DataFlowPipeline";
+import { SecurityDashboard } from "./components/diagrams/SecurityDashboard";
+import { RIULifecycle } from "./components/diagrams/RIULifecycle";
+import { PerformanceDashboard } from "./components/diagrams/PerformanceDashboard";
+import { StakeholderEcosystem } from "./components/diagrams/StakeholderEcosystem";
+
 import { NotFound } from "./components/NotFound";
 
 export const router = createBrowserRouter([
@@ -194,6 +202,14 @@ export const router = createBrowserRouter([
       { path: "infrastructure/riu-trading", Component: RIUTradingInteractive },
       { path: "infrastructure/impact-verification", Component: ImpactVerification },
       { path: "infrastructure/analytics", Component: InteractiveDashboard },
+
+      // Diagrams & Visualizations
+      { path: "diagrams/system-architecture", Component: SystemArchitecture },
+      { path: "diagrams/data-flow", Component: DataFlowPipeline },
+      { path: "diagrams/security", Component: SecurityDashboard },
+      { path: "diagrams/riu-lifecycle", Component: RIULifecycle },
+      { path: "diagrams/performance", Component: PerformanceDashboard },
+      { path: "diagrams/stakeholder-ecosystem", Component: StakeholderEcosystem },
 
       { path: "*", Component: NotFound },
     ],

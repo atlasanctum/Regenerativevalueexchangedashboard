@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import { Loader2 } from 'lucide-react';
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 
 interface ButtonProps {
   children: ReactNode;
@@ -13,7 +13,7 @@ interface ButtonProps {
   className?: string;
 }
 
-export function Button({
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
   onClick,
   variant = 'primary',
@@ -22,7 +22,7 @@ export function Button({
   disabled = false,
   icon,
   className = '',
-}: ButtonProps) {
+}, ref) => {
   const baseClasses = 'inline-flex items-center justify-center gap-2 rounded-lg transition-all font-medium';
 
   const variantClasses = {
@@ -43,6 +43,7 @@ export function Button({
 
   return (
     <motion.button
+      ref={ref}
       whileHover={!disabled && !loading ? { scale: 1.02 } : {}}
       whileTap={!disabled && !loading ? { scale: 0.98 } : {}}
       onClick={onClick}
@@ -59,4 +60,6 @@ export function Button({
       {children}
     </motion.button>
   );
-}
+});
+
+Button.displayName = 'Button';

@@ -1,5 +1,5 @@
 import { Outlet, Link, useLocation } from 'react-router';
-import { Leaf, Home, Layers, Building2, Activity, Zap, Sparkles, Database, Brain, Server, Palette, Scale, Eye, Briefcase, UserCheck, ShoppingBag, Vote, Users, MessageSquare, Trophy, HelpCircle, TrendingUp, LineChart, Wallet, ArrowLeftRight, Shield, Box, FileQuestion, AlertTriangle, DollarSign, PieChart, Gauge, Search, Globe, Code, Sparkle, Award, Microscope, Wrench, Rocket, CandlestickChart, Bell, Calculator, Package, Smartphone, Bot, Network, Lock, Workflow } from 'lucide-react';
+import { Leaf, Home, Layers, Building2, Activity, Zap, Sparkles, Database, Brain, Server, Palette, Scale, Eye, Briefcase, UserCheck, ShoppingBag, Vote, Users, MessageSquare, Trophy, HelpCircle, TrendingUp, LineChart, Wallet, ArrowLeftRight, Shield, Box, FileQuestion, AlertTriangle, DollarSign, PieChart, Gauge, Search, Globe, Code, Sparkle, Award, Microscope, Wrench, Rocket, CandlestickChart, Bell, Calculator, Package, Smartphone, Bot, Network, Lock, Workflow, GitBranch, Coins } from 'lucide-react';
 
 export function RootLayout() {
   const location = useLocation();
@@ -141,6 +141,19 @@ export function RootLayout() {
       ]
     },
     
+    {
+      label: 'Diagrams & Visualizations',
+      icon: GitBranch,
+      children: [
+        { label: 'System Architecture', path: '/diagrams/system-architecture', icon: Server },
+        { label: 'Data Flow Pipeline', path: '/diagrams/data-flow', icon: Activity },
+        { label: 'Security Dashboard', path: '/diagrams/security', icon: Shield },
+        { label: 'RIU Lifecycle', path: '/diagrams/riu-lifecycle', icon: Coins },
+        { label: 'Performance & Scalability', path: '/diagrams/performance', icon: Gauge },
+        { label: 'Stakeholder Ecosystem', path: '/diagrams/stakeholder-ecosystem', icon: Users },
+      ]
+    },
+
     {
       label: 'Legacy Dashboards',
       icon: Activity,
