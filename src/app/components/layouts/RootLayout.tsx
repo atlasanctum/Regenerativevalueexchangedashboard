@@ -155,6 +155,21 @@ export function RootLayout() {
     },
 
     {
+      label: 'Atlas Sanctum',
+      icon: Bot,
+      children: [
+        { label: 'Atlas OS Dashboard', path: '/atlas', icon: Server },
+        { label: 'Deal Engine', path: '/atlas/deal-engine', icon: Briefcase },
+        { label: 'Trust Engine', path: '/atlas/trust-engine', icon: Shield },
+        { label: 'Treasury Engine', path: '/atlas/treasury-engine', icon: Wallet },
+        { label: 'Growth Engine', path: '/atlas/growth-engine', icon: Rocket },
+        { label: 'Impact Engine', path: '/atlas/impact-engine', icon: Leaf },
+        { label: 'Risk Engine', path: '/atlas/risk-engine', icon: AlertTriangle },
+        { label: 'Reputation Engine', path: '/atlas/reputation-engine', icon: Award },
+      ]
+    },
+
+    {
       label: 'Legacy Dashboards',
       icon: Activity,
       children: [

@@ -93,6 +93,16 @@ import { RIULifecycle } from "./components/diagrams/RIULifecycle";
 import { PerformanceDashboard } from "./components/diagrams/PerformanceDashboard";
 import { StakeholderEcosystem } from "./components/diagrams/StakeholderEcosystem";
 
+// Atlas Sanctum - Autonomous Engine Infrastructure
+import { AtlasDashboard } from "./components/atlas/AtlasDashboard";
+import { DealEngine } from "./components/atlas/DealEngine";
+import { TrustEngineHub } from "./components/atlas/TrustEngineHub";
+import { TreasuryEngine } from "./components/atlas/TreasuryEngine";
+import { GrowthEngineHub } from "./components/atlas/GrowthEngineHub";
+import { ImpactEngineHub } from "./components/atlas/ImpactEngineHub";
+import { RiskEngine } from "./components/atlas/RiskEngine";
+import { ReputationEngine } from "./components/atlas/ReputationEngine";
+
 import { NotFound } from "./components/NotFound";
 
 export const router = createBrowserRouter([
@@ -210,6 +220,16 @@ export const router = createBrowserRouter([
       { path: "diagrams/riu-lifecycle", Component: RIULifecycle },
       { path: "diagrams/performance", Component: PerformanceDashboard },
       { path: "diagrams/stakeholder-ecosystem", Component: StakeholderEcosystem },
+
+      // Atlas Sanctum - Autonomous Engines
+      { path: "atlas", Component: AtlasDashboard },
+      { path: "atlas/deal-engine", Component: DealEngine },
+      { path: "atlas/trust-engine", Component: TrustEngineHub },
+      { path: "atlas/treasury-engine", Component: TreasuryEngine },
+      { path: "atlas/growth-engine", Component: GrowthEngineHub },
+      { path: "atlas/impact-engine", Component: ImpactEngineHub },
+      { path: "atlas/risk-engine", Component: RiskEngine },
+      { path: "atlas/reputation-engine", Component: ReputationEngine },
 
       { path: "*", Component: NotFound },
     ],
