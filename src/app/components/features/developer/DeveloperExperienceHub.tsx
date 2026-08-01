@@ -44,7 +44,7 @@ metrics = client.impact.get_metrics(
 # Subscribe to price updates
 @client.assets.on_price_update("carbon")
 async def handle_price(event):
-    print(f"Carbon price: ${event.price}")
+    print(f"Carbon price: \${event.price}")
 
 await client.connect()`,
 
