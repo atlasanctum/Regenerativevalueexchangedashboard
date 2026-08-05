@@ -18,8 +18,8 @@ const cashflowData = [
   { month: 'Mar', projected: 155000, actual: 171000 },
   { month: 'Apr', projected: 162000, actual: 178000 },
   { month: 'May', projected: 169000, actual: 184000 },
-  { month: 'Jun', projected: 177000, actual: null },
-  { month: 'Jul', projected: 185000, actual: null },
+  { month: 'Jun', projected: 177000 },
+  { month: 'Jul', projected: 185000 },
 ];
 
 const waterfallStructure = [
@@ -119,7 +119,7 @@ export function RevenueSharingAgreements() {
                 <XAxis dataKey="month" stroke="#6ee7b7" fontSize={11} />
                 <YAxis stroke="#6ee7b7" fontSize={11} tickFormatter={(v) => `$${(v / 1000).toFixed(0)}K`} />
                 <Tooltip contentStyle={{ background: '#0f172a', border: '1px solid #10b981', borderRadius: '8px', color: '#fff' }} formatter={(v: number) => [`$${v?.toLocaleString()}`, '']} />
-                <Bar dataKey="projected" name="Projected" fill="#10b981" opacity={0.4} radius={[4, 4, 0, 0]} />
+                <Bar dataKey="projected" name="Projected" fill="#059669" opacity={0.5} radius={[4, 4, 0, 0]} />
                 <Bar dataKey="actual" name="Actual" fill="#10b981" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>

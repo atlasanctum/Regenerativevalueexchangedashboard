@@ -34,6 +34,7 @@ import { ROICalculator } from "./components/features/intelligence/ROICalculator"
 import { IntelligentAlerts } from "./components/features/intelligence/IntelligentAlerts";
 import { NaturalLanguageQuery } from "./components/features/intelligence/NaturalLanguageQuery";
 import { InteroperabilityHub } from "./components/features/interoperability/InteroperabilityHub";
+import { DocumentIntelligenceHub } from "./components/features/document-intelligence/DocumentIntelligenceHub";
 import { VerificationHub } from "./components/features/verification/VerificationHub";
 import { Site3DVisualization } from "./components/features/verification/Site3DVisualization";
 import { DisputeResolution } from "./components/features/verification/DisputeResolution";
@@ -156,6 +157,9 @@ export const router = createBrowserRouter([
       
       // Feature 4: Interoperability
       { path: "interoperability", Component: InteroperabilityHub },
+
+      // Document Intelligence Layer
+      { path: "document-intelligence", Component: DocumentIntelligenceHub },
       
       // Feature 5: Verification & Trust
       { path: "verification/hub", Component: VerificationHub },

@@ -8,7 +8,7 @@ import { DollarSign, TrendingUp, Users, Leaf, Repeat, Plus, Smartphone, Shield }
 
 const opportunities = [
   { id: 'mi1', name: 'Amazon Mangrove Fractional', type: 'Carbon', region: 'Brazil', minInvest: '$10', apy: '+24.1%', raised: '$847K', target: '$2M', investors: 847, progress: 42, verified: 'Gold Standard' },
-  { id: 'mi2', name: 'Cloud Forest Micro-Share', type: 'Biodiversity', region: 'Colombia', minInvest: '$10', apy: '+31.4%', raised: '$423K', target: '$1M', investors: 1247, progress: 42, verified: 'Plan Vivo' },
+  { id: 'mi2', name: 'Cloud Forest Micro-Share', type: 'Biodiversity', region: 'Colombia', minInvest: '$10', apy: '+31.4%', raised: '$423K', target: '$1M', investors: 1247, progress: 43, verified: 'Plan Vivo' },
   { id: 'mi3', name: 'Coral Reef Nano-Investment', type: 'Marine Carbon', region: 'Australia', minInvest: '$25', apy: '+18.7%', raised: '$1.2M', target: '$2.5M', investors: 2847, progress: 48, verified: 'VCS' },
   { id: 'mi4', name: 'Prairie Restoration Unit', type: 'Soil Carbon', region: 'USA', minInvest: '$10', apy: '+16.2%', raised: '$234K', target: '$500K', investors: 523, progress: 47, verified: 'ACR' },
 ];
@@ -109,7 +109,7 @@ export function MicroInvestments() {
             <ResponsiveContainer width="100%" height={200}>
               <AreaChart data={growthData}>
                 <defs>
-                  <linearGradient id="microGrad" x1="0" y1="0" x2="0" y2="1">
+                  <linearGradient id="microInvestGrad" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
                     <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
                   </linearGradient>
@@ -118,7 +118,7 @@ export function MicroInvestments() {
                 <XAxis dataKey="month" stroke="#6ee7b7" fontSize={11} />
                 <YAxis stroke="#6ee7b7" fontSize={11} tickFormatter={(v) => `$${v}`} />
                 <Tooltip contentStyle={{ background: '#0f172a', border: '1px solid #10b981', borderRadius: '8px', color: '#fff' }} formatter={(v: number) => [`$${v}`, '']} />
-                <Area type="monotone" dataKey="value" stroke="#10b981" fill="url(#microGrad)" name="Portfolio Value" strokeWidth={2} />
+                <Area type="monotone" dataKey="value" stroke="#10b981" fill="url(#microInvestGrad)" name="Portfolio Value" strokeWidth={2} />
               </AreaChart>
             </ResponsiveContainer>
           </Card>
