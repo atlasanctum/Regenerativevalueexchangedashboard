@@ -56,6 +56,14 @@ import { RegenerativeCreditScore } from "./components/features/moonshot/Regenera
 import { ImpactNFTGallery } from "./components/features/moonshot/ImpactNFTGallery";
 import { DeSciIntegration } from "./components/features/moonshot/DeSciIntegration";
 
+// New Platform Pages
+import { MasterRoadmap } from "./components/roadmap-master/MasterRoadmap";
+import { ClimateIntelligenceOS } from "./components/features/climate/ClimateIntelligenceOS";
+import { MarketplaceHub } from "./components/features/marketplace/MarketplaceHub";
+import { GeospatialHub } from "./components/features/geospatial/GeospatialHub";
+import { PlatformAnalytics } from "./components/features/analytics/PlatformAnalytics";
+import { KnowledgeGraphExplorer } from "./components/features/analytics/KnowledgeGraphExplorer";
+
 // 2026 Roadmap Components
 import { AdvancedCharting } from "./components/roadmap-2026/AdvancedCharting";
 import { SocialFeatures } from "./components/roadmap-2026/SocialFeatures";
@@ -191,6 +199,14 @@ export const router = createBrowserRouter([
       { path: "nft-gallery", Component: ImpactNFTGallery },
       { path: "desci", Component: DeSciIntegration },
       
+      // New Platform Pages
+      { path: "roadmap", Component: MasterRoadmap },
+      { path: "climate", Component: ClimateIntelligenceOS },
+      { path: "analytics", Component: PlatformAnalytics },
+      { path: "knowledge-graph", Component: KnowledgeGraphExplorer },
+      { path: "marketplace", Component: MarketplaceHub },
+      { path: "geospatial", Component: GeospatialHub },
+
       // 2026 Roadmap Features
       { path: "roadmap/advanced-charting", Component: AdvancedCharting },
       { path: "roadmap/social-features", Component: SocialFeatures },

@@ -9,6 +9,7 @@ import {
   Smartphone, Bot, Network, Lock, Workflow, GitBranch, Coins, ChevronDown, ChevronRight,
   Command, X, ChevronLeft, Settings, LifeBuoy, Sparkle, FileText, ExternalLink,
   Plus, Zap as Flash, ArrowUp, Menu, Hash, Clock, Star, TrendingDown, BarChart3,
+  MapPin, CloudRain, ShoppingCart, BarChart2, Map,
 } from 'lucide-react';
 
 // ─── Navigation Data ──────────────────────────────────────────────────────────
@@ -52,6 +53,31 @@ const NAV_GROUPS = [
     label: 'Document Intelligence', icon: FileText, section: 'platform',
     children: [
       { label: 'Intelligence Hub', path: '/document-intelligence', icon: FileText },
+    ],
+  },
+  {
+    label: 'Climate Intelligence', icon: CloudRain, section: 'platform',
+    children: [
+      { label: 'Climate OS', path: '/climate', icon: CloudRain },
+    ],
+  },
+  {
+    label: 'Marketplace', icon: ShoppingCart, section: 'platform',
+    children: [
+      { label: 'Asset Marketplace', path: '/marketplace', icon: ShoppingCart },
+    ],
+  },
+  {
+    label: 'Geospatial', icon: Map, section: 'platform',
+    children: [
+      { label: 'Geospatial Hub', path: '/geospatial', icon: MapPin },
+    ],
+  },
+  {
+    label: 'Platform Analytics', icon: BarChart2, section: 'platform',
+    children: [
+      { label: 'Analytics Dashboard', path: '/analytics', icon: BarChart2 },
+      { label: 'Knowledge Graph', path: '/knowledge-graph', icon: GitBranch },
     ],
   },
   {
@@ -130,6 +156,7 @@ const NAV_GROUPS = [
   {
     label: '2026 Roadmap', icon: Rocket, section: 'roadmap',
     children: [
+      { label: 'Master Roadmap', path: '/roadmap', icon: Rocket },
       { label: 'Advanced Charting', path: '/roadmap/advanced-charting', icon: CandlestickChart },
       { label: 'Community Feed', path: '/roadmap/social-features', icon: Users },
       { label: 'Notifications', path: '/roadmap/notification-service', icon: Bell },
